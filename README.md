@@ -9,7 +9,7 @@ Choose the one you want to use and copy it to your project.
 
 ## Demo
 
-Inside the `demo` folder, there is a `main.ts` file where you can see a demonstration of this library. Also, you can access [this link](https://djjjonas.github.io/toaxt/) to see the a live demo.
+Inside the `demo` folder, there is a `main.ts` file where you can see a demonstration of this library. Also, you can access [this link](https://djjjonas.github.io/toaxt/) to see a live demo.
 
 ## Usage
 
@@ -81,5 +81,30 @@ toaxt.new({
   onClose: () => {
     console.log("Toaxt closed!");
   },
+});
+```
+
+The Toaxt library comes with premade styles. You can see them by using the `ToaxtStyles` object.
+
+```ts
+import { ToaxtStyles } from "/path/to/toaxt.ts";
+// success, error, info, warning
+toaxt.new({
+  text: "This toaxt has a success background.",
+  style: ToaxtStyles.success,
+});
+
+toaxt.new({
+  text: "This toaxt has an error background.",
+  style: ToaxtStyles.error,
+});
+
+toaxt.new({
+  text: "This toaxt has an info background.",
+  style: ToaxtStyles.info,
+});
+
+toaxt.new({
+  text: "This toaxt has a warning background.",
 });
 ```
