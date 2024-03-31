@@ -1,5 +1,7 @@
+import * as ace from "ace-builds";
 import Toaxt, { ToaxtConfig } from "./toaxt";
-import * as Monaco from "monaco-editor";
+
+ace.config.set("basePath", "/toaxt/node_modules/ace-builds/src-min-noconflict");
 
 const toaxt = new Toaxt();
 
@@ -9,40 +11,26 @@ const infoTest = document.querySelector("#infoTest") as HTMLButtonElement;
 const warningTest = document.querySelector("#warningTest") as HTMLButtonElement;
 const customTest = document.querySelector("#customTest") as HTMLButtonElement;
 
-// Configure Monaco Editor to load additional modules from CDN
-self.MonacoEnvironment = {
-  getWorkerUrl: () => {
-    return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
-      self.MonacoEnvironment = { baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.31.0/min/' };
-      importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.31.0/min/vs/base/worker/workerMain.min.js');
-    `)}`;
-  },
-};
-
-const editor = Monaco.editor.create(document.querySelector("#editor")!, {
+const editor = ace.edit("editor", {
+  mode: "ace/mode/json",
+  selectionStyle: "text",
   value: `{
-  "icon": "<i class='fa fa-smile-o'></i>",
-  "text": "Try to customize this toaxt",
-  "duration": 20000,
-  "style": {
-    "background": "linear-gradient(90deg, #004369, #DB1F48)"
-  },
-  "iconStyle": {
-    "fontSize": "3rem"
-  },
-  "textStyle": {
-    "fontSize": "1rem",
-    "fontWeight": "600",
-    "color": "transparent",
-    "background": "linear-gradient(90deg, #FF6C8B, #7ACD2E) text"
-  }
-}`,
-  language: "json",
-  theme: "vs-dark",
-  minimap: { enabled: false },
-  lineNumbersMinChars: 3,
-  folding: false,
-  tabSize: 2,
+    "icon": "<i class='fa fa-smile-o'></i>",
+    "text": "Try to customize this toaxt",
+    "duration": 20000,
+    "style": {
+      "background": "linear-gradient(90deg, #004369, #DB1F48)"
+    },
+    "iconStyle": {
+      "fontSize": "3rem"
+    },
+    "textStyle": {
+      "fontSize": "1rem",
+      "fontWeight": "600",
+      "color": "transparent",
+      "background": "linear-gradient(90deg, #FF6C8B, #7ACD2E) text"
+    }
+  }`,
 });
 
 successTest.onclick = () => {
