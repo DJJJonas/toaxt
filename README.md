@@ -1,6 +1,10 @@
-# Toaxt
-
-A dead simple toast library for the web.
+<h1 align="center">
+  <br>
+  <a href="https://djjjonas.github.io/toaxt"><img width="200" src="https://github.com/DJJJonas/toaxt/assets/48167880/1e617dcf-b6fd-4922-9a67-abf36e267d33" /></a>
+  <br>
+  Toaxt
+</h1>
+<h4 align="center">A dead simple toast library for the web.</h4>
 
 ## Installation
 
